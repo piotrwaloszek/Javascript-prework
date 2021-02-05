@@ -111,6 +111,4 @@ if( computerMove == 'kamień' && playerMove == "kamień"){
 	printMessage ('remis');
 }
 */
-let argComputerMove = displayResult(argMoveId);
-let argPlayerMove = displayResult(argMoveId);
-printMessage ("Wynik to:" + displayResult);
+displayResult(playerMove, computerMove);
