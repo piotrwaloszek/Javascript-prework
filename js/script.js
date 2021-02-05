@@ -1,4 +1,4 @@
-/* Funtion */
+/* Function */
 
 function printMessage(msg){
 	let div = document.createElement('div');
@@ -25,21 +25,21 @@ function getMoveName(argMoveId){
 	return 'nieznany ruch';
   }
 
-function displayResult(argComputerMove, argPlayerMove) {
+function displayResult(argComputerMove,argPlayerMove){
+	console.log('Wywołano funkcję displayResult z argumentami:' + argComputerMove + argPlayerMove);
 	printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
-
-	if( argComputerMove == 'kamień' && argplayerMove == 'papier'){
-		return 'Wygrałeś!'
-	}else if( argComputerMove == 'nożyce' && argplayerMove == 'kamień'){
-		return 'Wygrałeś!'
-	}else if( argComputerMove == 'papier' && argplayerMove == 'nożyce'){
-		return "Wygrałeś!"
+	if( argComputerMove == 'kamień' && argPlayerMove == 'papier'){
+		printMessage('Wygrałeś!');
+	}else if( argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
+		printMessage ('Wygrałeś!');
+	}else if( argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
+		printMessage ("Wygrałeś!");
 	}else if (argComputerMove == argPlayerMove){
-		return "Remis!"
+		printMessage ("Remis!");
 	}else if (argPlayerMove == "nieznany ruch") {
-		return "Nieznany ruch"
+		printMessage ("Nieznany ruch");
 	}else {
-		Return "Przegrałeś"
+		printMessage ("Przegrałeś");
 	}
 }
 
@@ -111,4 +111,4 @@ if( computerMove == 'kamień' && playerMove == "kamień"){
 	printMessage ('remis');
 }
 */
-displayResult(playerMove, computerMove);
+displayResult(computerMove,playerMove);
