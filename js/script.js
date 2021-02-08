@@ -1,3 +1,6 @@
+let computerScore = 0
+let playerScore = 0
+
 function printMessage(msg){
 	let div = document.createElement('div');
 	div.innerHTML = msg;
@@ -50,6 +53,14 @@ function playGame (playerInput) {
 	displayResult(computerMove,playerInput);
 }
 
+function score (argPoint) {
+	if (argPoint == 1) {
+		computerScore = computerscore+1;
+	} else if (argPoint == 0) {
+		playerScore = playerScore+1;
+	}return computerscore,playerInput;
+}
+
 document.getElementById('play-rock').addEventListener("click", function () {
 	playGame('kamień');
 });
@@ -61,3 +72,5 @@ document.getElementById('play-paper').addEventListener("click", function () {
 document.getElementById('play-scissors').addEventListener("click", function () {
 	playGame('nożyce');
 });
+document.getElementById('result').innerHTML = "Komputer:" + computerScore + "Gracz:" + playerScore;
+score(displayResult(computerMove,playerInput));
