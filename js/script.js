@@ -78,5 +78,4 @@ document.getElementById('play-paper').addEventListener("click", function () {
 document.getElementById('play-scissors').addEventListener("click", function () {
 	playGame('nożyce');
 });
-document.getElementById('result').innerHTML = "Komputer:" + computerScore + "Gracz:" + playerMove;
-score(displayResult(computerMove,playerInput));
+
