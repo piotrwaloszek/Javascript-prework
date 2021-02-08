@@ -1,5 +1,6 @@
 let computerScore = 0
 let playerScore = 0
+let resultDOM = document.getElementById('result');
 
 function printMessage(msg){
 	let div = document.createElement('div');
@@ -31,16 +32,20 @@ function displayResult(argComputerMove,argPlayerMove){
 	printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 	if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
 		printMessage('Wygrałeś!');
+		score('player');
 	}else if (argComputerMove == 'nożyce' && argPlayerMove == 'kamień') {
 		printMessage ('Wygrałeś!');
+		score('player');
 	}else if (argComputerMove == 'papier' && argPlayerMove == 'nożyce') {
 		printMessage ("Wygrałeś!");
+		score('player');
 	}else if (argComputerMove == argPlayerMove) {
 		printMessage ("Remis!");
 	}else if (argPlayerMove == "nieznany ruch") {
 		printMessage ("Nieznany ruch");
 	}else {
 		printMessage ("Przegrałeś");
+		score('computer');
 	}
 }
 
@@ -53,12 +58,13 @@ function playGame (playerInput) {
 	displayResult(computerMove,playerInput);
 }
 
-function score (argPoint) {
-	if (argPoint == 1) {
-		computerScore = computerscore+1;
-	} else if (argPoint == 0) {
-		playerScore = playerScore+1;
-	}return computerscore,playerInput;
+function score(winner) {
+	if (winner == 'computer') {
+		computerScore++;
+	} else if (winner == 'player') {
+		playerScore++;
+	}
+	resultDOM.innerHTML = `Komputer: ${computerScore} : Gracz: ${playerScore}`;
 }
 
 document.getElementById('play-rock').addEventListener("click", function () {
@@ -72,5 +78,5 @@ document.getElementById('play-paper').addEventListener("click", function () {
 document.getElementById('play-scissors').addEventListener("click", function () {
 	playGame('nożyce');
 });
-document.getElementById('result').innerHTML = "Komputer:" + computerScore + "Gracz:" + playerScore;
+document.getElementById('result').innerHTML = "Komputer:" + computerScore + "Gracz:" + playerMove;
 score(displayResult(computerMove,playerInput));
