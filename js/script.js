@@ -2,17 +2,17 @@ let computerScore = 0
 let playerScore = 0
 let resultDOM = document.getElementById('result');
 
-function printMessage(msg){
+const printMessage = function(msg){
 	let div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 }
 
-function clearMessages(){
+const clearMessages = function(){
 	document.getElementById('messages').innerHTML = '';
 }
 
-function getMoveName(argMoveId){
+const getMoveName = function(argMoveId){
 	if (argMoveId == 1) {
 		return 'kamień';
 	}
@@ -27,7 +27,7 @@ function getMoveName(argMoveId){
 	return 'nieznany ruch';
 }
 
-function displayResult(argComputerMove,argPlayerMove){
+const displayResult = function(argComputerMove,argPlayerMove){
 	console.log('Wywołano funkcję displayResult z argumentami:' + argComputerMove + argPlayerMove);
 	printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
 	if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
@@ -49,7 +49,7 @@ function displayResult(argComputerMove,argPlayerMove){
 	}
 }
 
-function playGame (playerInput) {
+const playGame = function(playerInput) {
 	clearMessages();
 	let randomNumber = Math.floor(Math.random() * 3 + 1);
 	let computerMove = getMoveName(randomNumber);
@@ -58,7 +58,7 @@ function playGame (playerInput) {
 	displayResult(computerMove,playerInput);
 }
 
-function score(winner) {
+const score = function(winner) {
 	if (winner == 'computer') {
 		computerScore++;
 	} else if (winner == 'player') {
